@@ -19,15 +19,23 @@ export function formatPercent(value: number): string {
     return `${bnPercent.format(value)}%`;
 }
 
-const UNIT_LABELS: Record<string, string> = {
-    kg: "প্রতি কেজি",
-    liter: "প্রতি লিটার",
-    dozen: "প্রতি ডজন",
-    piece: "প্রতি পিস",
+const UNIT_NAMES: Record<string, string> = {
+    kg: "কেজি",
+    litre: "লিটার",
+    dozen: "ডজন",
+    piece: "পিস",
 };
 
+export function getUnitName(unit: string): string {
+    return UNIT_NAMES[unit] ?? unit;
+}
+
 export function getUnitLabel(unit: string): string {
-    return UNIT_LABELS[unit] ?? `প্রতি ${unit}`;
+    return `প্রতি ${getUnitName(unit)}`;
+}
+
+export function formatPriceWithUnit(value: number, unit: string): string {
+    return `${formatPrice(value)}/${getUnitName(unit)}`;
 }
 
 const CHANGE_SYMBOLS: Record<PriceDirection, string> = {
@@ -47,11 +55,16 @@ export function formatChange({ dir, pct }: PriceChange) {
 }
 
 export function getBanglaDate(date: Date = new Date()): string {
-    return new Intl.DateTimeFormat("bn-BD-u-nu-beng", {
+    const parts = new Intl.DateTimeFormat("bn-BD-u-nu-beng", {
         weekday: "long",
         day: "numeric",
         month: "long",
         year: "numeric",
         timeZone: "Asia/Dhaka",
-    }).format(date);
+    }).formatToParts(date);
+
+    const get = (type: Intl.DateTimeFormatPartTypes) =>
+        parts.find((part) => part.type === type)?.value ?? "";
+
+    return `${get("weekday")}, ${get("day")} ${get("month")}, ${get("year")}`;
 }

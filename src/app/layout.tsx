@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Hind_Siliguri } from "next/font/google";
+import Navbar from "@/components/layout/Navbar";
+import PriceTicker from "@/components/layout/PriceTicker";
 import "./globals.css";
 
 const hindSiliguri = Hind_Siliguri({
@@ -20,8 +22,12 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="bn" data-theme="light">
-      <body className={`${hindSiliguri.className} min-h-screen bg-base-100 antialiased`}>
+    <html lang="bn" data-theme="bazardor">
+      <body
+        className={`${hindSiliguri.className} min-h-screen bg-base-100 text-base-content antialiased`}
+      >
+        <Navbar />
+        <PriceTicker />
         {children}
       </body>
     </html>
