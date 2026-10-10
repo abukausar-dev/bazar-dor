@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import type { Metadata } from "next";
 import { Hind_Siliguri } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
@@ -29,6 +30,7 @@ export default function RootLayout({
         <Navbar />
         <PriceTicker />
         {children}
+        <Toaster position="top-center" />
       </body>
     </html>
   );
