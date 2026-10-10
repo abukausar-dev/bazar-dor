@@ -1,25 +1,26 @@
-import { getCategories, getProducts } from "@/lib/api";
-import { formatChange, formatPrice, getUnitLabel } from "@/lib/utils";
+import AllProducts from "@/components/home/AllProducts";
+import Hero from "@/components/home/Hero";
+import PriceMovers from "@/components/home/PriceMovers";
+import { getProducts } from "@/lib/api";
+import { getTopFallers, getTopRisers } from "@/lib/products";
 
 export default async function HomePage() {
-  const [products, categories] = await Promise.all([
-    getProducts(),
-    getCategories(),
-  ]);
-
-  console.log("Units:", [...new Set(products.map((p) => p.unit))]);
+  const products = await getProducts();
 
   return (
-    <main className="p-8">
-      <p>পণ্য: {products.length}, ক্যাটাগরি: {categories.length}</p>
-      <ul className="mt-4 space-y-1">
-        {products.slice(0, 5).map((p) => (
-          <li key={p.id}>
-            {p.image} {p.nameBn} — {formatPrice(p.today)} ({getUnitLabel(p.unit)}){" "}
-            {formatChange(p.change).text}
-          </li>
-        ))}
-      </ul>
+    <main className="mx-auto max-w-6xl space-y-10 px-4 py-6">
+      <Hero />
+      <PriceMovers
+        title="আজ দাম বেড়েছে"
+        direction="up"
+        products={getTopRisers(products)}
+      />
+      <PriceMovers
+        title="আজ দাম কমেছে"
+        direction="down"
+        products={getTopFallers(products)}
+      />
+      <AllProducts products={products} />
     </main>
   );
 }

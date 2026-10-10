@@ -1,6 +1,7 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { getCategories } from "@/lib/api";
-import { getBanglaDate } from "@/lib/utils";
+import TodayDate from "@/components/common/TodayDate";
 import AuthButtons from "./AuthButtons";
 import CategoryNav from "./CategoryNav";
 
@@ -21,7 +22,15 @@ export default async function Navbar() {
                         <span className="text-xl font-bold leading-7 tracking-[-0.5px]">
                             বাজার দর
                         </span>
-                        <span className="text-xs leading-4">{getBanglaDate()}</span>
+                        <span className="text-xs leading-4">
+                            <Suspense
+                                fallback={
+                                    <span className="skeleton inline-block h-3 w-36 align-middle" />
+                                }
+                            >
+                                <TodayDate />
+                            </Suspense>
+                        </span>
                     </span>
                 </Link>
 
@@ -30,7 +39,9 @@ export default async function Navbar() {
 
             <div className="border-t border-base-200">
                 <div className="mx-auto max-w-6xl px-4">
-                    <CategoryNav categories={categories} />
+                    <Suspense fallback={<div className="h-12" />}>
+                        <CategoryNav categories={categories} />
+                    </Suspense>
                 </div>
             </div>
         </header>

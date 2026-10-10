@@ -38,7 +38,7 @@ export function formatPriceWithUnit(value: number, unit: string): string {
     return `${formatPrice(value)}/${getUnitName(unit)}`;
 }
 
-const CHANGE_SYMBOLS: Record<PriceDirection, string> = {
+export const CHANGE_SYMBOLS: Record<PriceDirection, string> = {
     up: "▲",
     down: "▼",
     flat: "—",
@@ -54,7 +54,7 @@ export function formatChange({ dir, pct }: PriceChange) {
     return { dir, text };
 }
 
-export function getBanglaDate(date: Date = new Date()): string {
+export function getBanglaDate(date: Date): string {
     const parts = new Intl.DateTimeFormat("bn-BD-u-nu-beng", {
         weekday: "long",
         day: "numeric",

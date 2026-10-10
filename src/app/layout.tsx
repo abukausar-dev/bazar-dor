@@ -22,9 +22,9 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="bn" data-theme="bazardor">
+    <html lang="bn" data-theme="bazardor" data-scroll-behavior="smooth">
       <body
-        className={`${hindSiliguri.className} min-h-screen bg-base-100 text-base-content antialiased`}
+        className={`${hindSiliguri.className} min-h-screen bg-base-200 text-base-content antialiased`}
       >
         <Navbar />
         <PriceTicker />
