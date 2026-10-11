@@ -6,11 +6,6 @@
 
 *Track today's essential grocery prices across Bangladesh — in Bangla, at a glance.*
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-05893e?style=for-the-badge&logo=vercel&logoColor=white)](https://bazar-dor-beta-orpin.vercel.app/)
-[![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
-
 </div>
 
 ---
@@ -22,14 +17,6 @@
 **BazarDor** is a Bangla-first web app that shows today's prices of everyday essentials, how they changed since yesterday, and a market-by-market price breakdown across divisions.
 
 🔗 **Live site:** [https://bazar-dor-beta-orpin.vercel.app/](https://bazar-dor-beta-orpin.vercel.app/)
-
-<!--
-স্ক্রিনশট যোগ করতে: docs/ ফোল্ডারে ছবি রেখে নিচের লাইনগুলোর <!-- --> সরিয়ে দিন
-<p align="center">
-  <img src="./docs/home.png" alt="Home page" width="48%" />
-  <img src="./docs/details.png" alt="Product details page" width="48%" />
-</p>
--->
 
 ---
 
@@ -75,44 +62,6 @@
 
 ---
 
-## 🚀 লোকালি চালানোর নিয়ম | Getting Started
-
-**১. রিপোজিটরি ক্লোন করুন**
-
-```bash
-git clone https://github.com/abukausar-dev/bazar-dor.git
-cd bazar-dor
-```
-
-**২. ডিপেন্ডেন্সি ইনস্টল করুন**
-
-```bash
-pnpm install
-```
-
-**৩. `.env.local` ফাইল বানান**
-
-```bash
-NEXT_PUBLIC_API_URL=https://api.abcz.workers.dev/api/bazardor
-BETTER_AUTH_SECRET=your-random-secret
-BETTER_AUTH_URL=http://localhost:3000
-MONGODB_URI=your-mongodb-connection-string
-GOOGLE_CLIENT_ID=your-google-client-id
-GOOGLE_CLIENT_SECRET=your-google-client-secret
-GITHUB_CLIENT_ID=your-github-client-id
-GITHUB_CLIENT_SECRET=your-github-client-secret
-```
-
-**৪. ডেভেলপমেন্ট সার্ভার চালু করুন**
-
-```bash
-pnpm dev
-```
-
-এরপর ব্রাউজারে [http://localhost:3000](http://localhost:3000) খুলুন।
-
----
-
 ## 📁 প্রজেক্ট কাঠামো | Project Structure
 
 ```text
@@ -133,6 +82,6 @@ src/
 
 ## 🙋 লেখক | Author
 
-**Kausar** — Programming Hero, Batch 14 · Assignment 07
+**Abu Kausar** — Programming Hero, Batch 14 · Assignment 07
 
 শিক্ষামূলক প্রজেক্ট হিসেবে তৈরি। সব দাম সম্ভাব্য; বাজার অবস্থার ওপর নির্ভর করে পরিবর্তিত হয়।
