@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Hind_Siliguri } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import PriceTicker from "@/components/layout/PriceTicker";
+import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
 const hindSiliguri = Hind_Siliguri({
@@ -25,11 +26,12 @@ export default function RootLayout({
   return (
     <html lang="bn" data-theme="bazardor" data-scroll-behavior="smooth">
       <body
-        className={`${hindSiliguri.className} min-h-screen bg-base-200 text-base-content antialiased`}
+        className={`${hindSiliguri.className} min-h-screen flex flex-col bg-base-200 text-base-content antialiased`}
       >
         <Navbar />
         <PriceTicker />
-        {children}
+        <main className="flex-1">{children}</main>
+        <Footer />
         <Toaster position="top-center" />
       </body>
     </html>
